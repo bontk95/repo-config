@@ -10,6 +10,8 @@ spring:
       password: admin
   main:
     allow-bean-definition-overriding: true
+  thymeleaf:
+    check-template: false
   boot:
     admin:
       client:
