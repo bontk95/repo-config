@@ -1,6 +1,6 @@
 #port
 server:
-  port: 9999
+  port: 1234
 #Service name
 spring:
   #  DATASOURCE MARIADB
