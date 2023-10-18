@@ -1,48 +1,27 @@
+#port
 server:
-  port: 1768
-#  error:
-#    include-stacktrace: never
-#Eureka client config
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-    fetchRegistry: true
-  instance:
-    prefer-ip-address: false
-
-
-zuul:
-  ignoredServices: "*"
-  sensitiveHeaders:
-    - Authorization,Cookie,Set-Cookie,reqId,agent
-  routes:
-    auth:
-      url: http://localhost:9004/auth
-  custom-ratelimit:
-    enabled: true
-    repository: redis
-    api-policy-list:
-      - uri: /tracking/session
-        http_method: post
-        limit: 10
-        refreshInterval: 180
-        type:
-          headers: token,ip
-
+  port: 9999
+#Service name
 spring:
+  #  DATASOURCE MARIADB
+  security:
+    user:
+      name: admin
+      password: admin
   main:
     allow-bean-definition-overriding: true
   boot:
     admin:
       client:
-        url: http://localhost:9999
-        username: admin
-        password: admin
-      notify:
-        mail:
-          to:
-
+        url: http://localhost:9090
+        username: ${spring.security.user.name}
+        password: ${spring.security.user.password}
+        instance:
+          api-path: instances
+          metadata:
+            user:
+              name: ${spring.security.user.name}
+              password: ${spring.security.user.password}
 management:
   endpoint:
     web:
@@ -50,21 +29,12 @@ management:
         include: "*"
     health:
       show-details: always
-
-service:
-  gateway:
-    request-logging:
-      enabled: true
-    authorization:
-      enabled: true
-      url: http://localhost:9004/auth/check
-      token:
-        length: 64
-      access-token:
-        length: 128
-    api:
-      blacklist:
-      whitelist:
-        - /auth/login
-        - /auth/check
-
+eureka:
+  client:
+    registryFetchIntervalSeconds: 60
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: false
