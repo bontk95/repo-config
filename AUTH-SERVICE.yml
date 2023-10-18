@@ -1,7 +1,6 @@
 #CONFIG PORT
 server:
   port: 9090
-  max-http-header-size: 1000000
 
 # SPRING CONFIG
 spring:
