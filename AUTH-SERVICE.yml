@@ -1,6 +1,6 @@
 #CONFIG PORT
 server:
-  port: 9012
+  port: 9090
 
 # SPRING CONFIG
 spring:
