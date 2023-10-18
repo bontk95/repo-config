@@ -7,7 +7,7 @@ spring:
   boot:
     admin:
       client:
-        url: http://admin-server:9999
+        url: http://admin-server:9090
         username: admin
         password: admin
       notify:
