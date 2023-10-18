@@ -60,7 +60,7 @@ service:
       enabled: true
     authorization:
       enabled: true
-      url: http://auth-service:9090/check
+      url: http://auth-service:9090/auth/check
       token:
         length: 64
       access-token:
