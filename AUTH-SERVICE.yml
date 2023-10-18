@@ -1,13 +1,13 @@
 #CONFIG PORT
 server:
-  port: 9090
+  port: 9012
 
 # SPRING CONFIG
 spring:
   boot:
     admin:
       client:
-        url: http://admin-server:9090
+        url: http://admin-server:9999
         username: admin
         password: admin
       notify:
