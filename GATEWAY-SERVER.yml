@@ -1,6 +1,6 @@
 
 server:
-  port: 9001
+  port: 9991
 #  error:
 #    include-stacktrace: never
 #Eureka client config
