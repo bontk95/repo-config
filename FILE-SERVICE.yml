@@ -1,0 +1,21 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: file-service
+
+  boot:
+    admin:
+      client:
+        url: http://admin-server:9999
+        username: admin
+        password: admin
+
+# eureka server url
+eureka:
+  client:
+    service-url:
+      default-zone: http://eureka-server:8761/eureka
+    fetchRegistry: true
+    instance:
+      preferIpAddress: false
