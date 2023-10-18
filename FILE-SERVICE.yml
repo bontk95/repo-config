@@ -11,11 +11,11 @@ spring:
         username: admin
         password: admin
 
-# eureka server url
+#Eureka client config
 eureka:
   client:
     service-url:
-      default-zone: http://eureka-server:8761/eureka
+      defaultZone: http://eureka-server:8761/eureka/
     fetchRegistry: true
     instance:
       preferIpAddress: false
